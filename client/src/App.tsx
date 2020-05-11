@@ -1,11 +1,9 @@
 import React from 'react';
-import ChatsList from './components/ChatsList';
-import ChatsNavbar from './components/ChatsNavbar';
+import ChatsListScreen from './components/ChatsListScreen';
 
 const App: React.FC = () => (
   <div>
-    <ChatsNavbar />
-    <ChatsList />
+    <ChatsListScreen />
   </div>
 );
 
