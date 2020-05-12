@@ -1,6 +1,9 @@
 /node_modules
 .env
 
+# Yarn
+yarn.lock
+
 # System Files
 .DS_Store
 Thumbs.db
