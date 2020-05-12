@@ -1,0 +1,12 @@
+{
+  "name": "full-stack-whatsapp-clone-server",
+  "version": "0.0.1",
+  "description": "Server side from A whatsapp clone made with React, Typescript, GraphQL, and other technologies",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ramon morcillo @reymon359",
+  "license": "ISC"
+}
