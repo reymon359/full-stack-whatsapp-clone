@@ -5,25 +5,41 @@ Object {
   "chats": Array [
     Object {
       "id": "1",
-      "lastMessage": null,
+      "lastMessage": Object {
+        "content": "You on your way?",
+        "createdAt": "2020-05-12T14:00:01.620Z",
+        "id": "1",
+      },
       "name": "Ethan Gonzalez",
       "picture": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
     },
     Object {
       "id": "2",
-      "lastMessage": null,
+      "lastMessage": Object {
+        "content": "Hey, it's me",
+        "createdAt": "2020-05-11T21:20:01.620Z",
+        "id": "2",
+      },
       "name": "Bryan Wallace",
       "picture": "https://randomuser.me/api/portraits/thumb/men/2.jpg",
     },
     Object {
       "id": "3",
-      "lastMessage": null,
+      "lastMessage": Object {
+        "content": "I should buy a boat",
+        "createdAt": "2020-04-26T14:40:01.620Z",
+        "id": "3",
+      },
       "name": "Avery Stewart",
       "picture": "https://randomuser.me/api/portraits/thumb/women/1.jpg",
     },
     Object {
       "id": "4",
-      "lastMessage": null,
+      "lastMessage": Object {
+        "content": "This is wicked good ice cream.",
+        "createdAt": "2019-09-22T22:40:01.620Z",
+        "id": "4",
+      },
       "name": "Katie Peterson",
       "picture": "https://randomuser.me/api/portraits/thumb/women/2.jpg",
     },
