@@ -33,9 +33,9 @@ describe('MessagesList', () => {
     }
 
     expect(getByTestId(message1, 'message-content')).toHaveTextContent('foo');
-    expect(getByTestId(message1, 'message-date')).toHaveTextContent('00:00');
+    expect(getByTestId(message1, 'message-date')).toHaveTextContent('01:00');
 
     expect(getByTestId(message2, 'message-content')).toHaveTextContent('bar');
-    expect(getByTestId(message2, 'message-date')).toHaveTextContent('00:00');
+    expect(getByTestId(message2, 'message-date')).toHaveTextContent('01:00');
   });
 });

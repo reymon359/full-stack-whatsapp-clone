@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from '@testing-library/react';
+import ChatsNavbar from './components/ChatsListScreen/ChatsNavbar';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+test('renders learn react link', () => {
+  const { getByText } = render(<ChatsNavbar />);
+  const linkElement = getByText(/Whatsapp Clone/i);
+  expect(linkElement).toBeInTheDocument();
 });
