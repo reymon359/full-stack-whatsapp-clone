@@ -56,5 +56,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "apollo-link-mock": "1.0.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-router-transition)/)"
+    ]
   }
 }
