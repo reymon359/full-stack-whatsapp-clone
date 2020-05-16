@@ -43,6 +43,7 @@
     "typescript": "3.8.3"
   },
   "scripts": {
+    "prestart": "yarn codegen",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
