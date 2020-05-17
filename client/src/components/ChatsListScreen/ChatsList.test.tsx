@@ -74,7 +74,7 @@ describe('ChatsList', () => {
         'https://localhost:4000/picture.jpg'
       );
       expect(getByTestId('content')).toHaveTextContent('Hello');
-      expect(getByTestId('date')).toHaveTextContent('00:00');
+      expect(getByTestId('date')).toHaveTextContent('01:00');
     }
   });
 
