@@ -4,8 +4,10 @@ import * as fragments from '../graphql/fragments';
 import * as queries from '../graphql/queries';
 import {
   MessageFragment,
-  useMessageAddedSubscription,
   ChatsQuery,
+  ChatFragment,
+  useMessageAddedSubscription,
+  useChatAddedSubscription,
 } from '../graphql/types';
 
 type Client = Pick<
@@ -18,6 +20,14 @@ export const useCacheService = () => {
     onSubscriptionData: ({ client, subscriptionData: { data } }) => {
       if (data) {
         writeMessage(client, data.messageAdded);
+      }
+    },
+  });
+
+  useChatAddedSubscription({
+    onSubscriptionData: ({ client, subscriptionData: { data } }) => {
+      if (data) {
+        writeChat(client, data.chatAdded);
       }
     },
   });
@@ -88,5 +98,42 @@ export const writeMessage = (client: Client, message: MessageFragment) => {
   client.writeQuery({
     query: queries.chats,
     data: { chats: chats },
+  });
+};
+
+export const writeChat = (client: Client, chat: ChatFragment) => {
+  const chatId = defaultDataIdFromObject(chat);
+  if (chatId === null) {
+    return;
+  }
+
+  client.writeFragment({
+    id: chatId,
+    fragment: fragments.chat,
+    fragmentName: 'Chat',
+    data: chat,
+  });
+
+  let data;
+  try {
+    data = client.readQuery<ChatsQuery>({
+      query: queries.chats,
+    });
+  } catch (e) {
+    return;
+  }
+
+  if (!data) return;
+
+  const chats = data.chats;
+
+  if (!chats) return;
+  if (chats.some((c: any) => c.id === chat.id)) return;
+
+  chats.unshift(chat);
+
+  client.writeQuery({
+    query: queries.chats,
+    data: { chats },
   });
 };
