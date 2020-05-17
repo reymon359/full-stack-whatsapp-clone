@@ -181,6 +181,7 @@ const AuthScreen: React.FC<RouteComponentProps<any>> = ({ history }) => {
             onClick={handleSignIn}>
             Sign in
           </Button>
+          <p>{error}</p>
         </ActualForm>
       </SignInForm>
     </Container>
