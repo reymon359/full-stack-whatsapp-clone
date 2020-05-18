@@ -32,12 +32,45 @@ export const dbConfig = {
 
 export let pool: Pool = new Pool(dbConfig);
 
-export const users: User[] = [];
-export const messages: Message[] = [];
-export const chats: Chat[] = [];
+export async function initDb(): Promise<void> {
+  // Clear tables
+  await pool.query(sql`DROP TABLE IF EXISTS messages;`);
+  await pool.query(sql`DROP TABLE IF EXISTS chats_users;`);
+  await pool.query(sql`DROP TABLE IF EXISTS users;`);
+  await pool.query(sql`DROP TABLE IF EXISTS chats;`);
+
+  // Create tables
+  await pool.query(sql`CREATE TABLE chats(
+    id SERIAL PRIMARY KEY
+  );`);
+  await pool.query(sql`CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR (50) UNIQUE NOT NULL,
+    name VARCHAR (50) NOT NULL,
+    password VARCHAR (255) NOT NULL,
+    picture VARCHAR (255) NOT NULL
+  );`);
+  await pool.query(sql`CREATE TABLE chats_users(
+    chat_id INTEGER NOT NULL REFERENCES chats(id) ON DELETE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+  );`);
+
+  await pool.query(sql`CREATE TABLE messages(
+    id SERIAL PRIMARY KEY,
+    content VARCHAR (355) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    chat_id INTEGER NOT NULL REFERENCES chats(id) ON DELETE CASCADE,
+    sender_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+  );`);
+
+  // Privileges
+  await pool.query(
+    sql`GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO testuser;`
+  );
+}
 
 export const resetDb = async () => {
-  await pool.query(sql`DELETE FROM users`);
+  await initDb();
 
   const sampleUsers = [
     {
@@ -80,9 +113,7 @@ export const resetDb = async () => {
   for (const sampleUser of sampleUsers) {
     await pool.query(sql`
       INSERT INTO users(id, name, username, password, picture)
-      VALUES(${sampleUser.id}, ${sampleUser.name}, ${sampleUser.username}, ${
-      sampleUser.password
-      }, ${sampleUser.picture})
+      VALUES(${sampleUser.id}, ${sampleUser.name}, ${sampleUser.username}, ${sampleUser.password}, ${sampleUser.picture})
     `);
   }
 
@@ -200,9 +231,7 @@ export const resetDb = async () => {
   for (const sampleMessage of sampleMessages) {
     await pool.query(sql`
       INSERT INTO messages(id, content, created_at, chat_id, sender_user_id)
-      VALUES(${sampleMessage.id}, ${sampleMessage.content}, ${
-      sampleMessage.created_at
-      }, ${sampleMessage.chat_id}, ${sampleMessage.sender_user_id})
+      VALUES(${sampleMessage.id}, ${sampleMessage.content}, ${sampleMessage.created_at}, ${sampleMessage.chat_id}, ${sampleMessage.sender_user_id})
     `);
   }
 
