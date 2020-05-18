@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
- 
+
 exports[`Mutation.addChat creates a new chat between current user and specified recipient 1`] = `
 Object {
   "addChat": Object {
@@ -16,7 +16,7 @@ Object {
   },
 }
 `;
- 
+
 exports[`Mutation.addChat creates a new chat between current user and specified recipient 2`] = `
 Object {
   "chat": Object {
@@ -33,7 +33,7 @@ Object {
   },
 }
 `;
- 
+
 exports[`Mutation.addChat returns the existing chat if so 1`] = `
 Object {
   "addChat": Object {

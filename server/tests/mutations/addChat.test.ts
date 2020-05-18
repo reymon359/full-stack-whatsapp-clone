@@ -18,7 +18,7 @@ describe('Mutation.addChat', () => {
         currentUser,
         db: await pool.connect(),
       }),
-      formatResponse: (res: any, { context }: any) => {
+      formatResponse: (res: any, { context }: { context: MyContext }) => {
         context.db.release();
         return res;
       },
@@ -75,11 +75,10 @@ describe('Mutation.addChat', () => {
         currentUser,
         db: await pool.connect(),
       }),
-      formatResponse: (res: any, { context }: any) => {
+      formatResponse: (res: any, { context }: { context: MyContext }) => {
         context.db.release();
         return res;
       },
-
     });
 
     const { query, mutate } = createTestClient(server);

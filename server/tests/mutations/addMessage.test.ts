@@ -18,7 +18,7 @@ describe('Mutation.addMessage', () => {
         currentUser,
         db: await pool.connect(),
       }),
-      formatResponse: (res: any, { context }: any) => {
+      formatResponse: (res: any, { context }: { context: MyContext }) => {
         context.db.release();
         return res;
       },
