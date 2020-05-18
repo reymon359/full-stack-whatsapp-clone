@@ -11,23 +11,21 @@ export type User = {
 export type Message = {
   id: string;
   content: string;
-  createdAt: Date;
-  sender: string;
-  recipient: string;
+  created_at: Date;
+  chat_id: string;
+  sender_user_id: string;
 };
 
 export type Chat = {
   id: string;
-  messages: string[];
-  participants: string[];
 };
 
 export const dbConfig = {
-  host: process.env.DB_HOST ? process.env.DB_HOST : 'localhost',
+  host: 'localhost',
   port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
-  user: process.env.DB_USER ? process.env.DB_USER : 'testuser',
-  password: process.env.DB_PASS ? process.env.DB_PASS : 'testpassword',
-  database: process.env.DB_NAME ? process.env.DB_NAME : 'whatsapp'
+  user: 'testuser',
+  password: 'testpassword',
+  database: 'whatsapp',
 };
 
 export let pool: Pool = new Pool(dbConfig);
