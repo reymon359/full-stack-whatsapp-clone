@@ -7,6 +7,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validateLength, validatePassword } from '../validators';
 import sql from 'sql-template-strings';
+import axios from 'axios';
+import { RandomPhoto } from '../types/unsplash';
 
 const resolvers: Resolvers = {
   Date: DateTimeResolver,
@@ -71,7 +73,26 @@ const resolvers: Resolvers = {
 
       const participant = rows[0];
 
-      return participant ? participant.picture : null;
+      if (participant && participant.picture) return participant.picture;
+
+      try {
+        return (await axios.get<RandomPhoto>(
+          'https://api.unsplash.com/photos/random',
+          {
+            params: {
+              query: 'portrait',
+              orientation: 'squarish',
+            },
+            headers: {
+              Authorization:
+                `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+            },
+          }
+        )).data.urls.small;
+      } catch (err) {
+        console.error('Cannot retrieve random photo:', err);
+        return null;
+      }
     },
 
     async messages(chat, args, { db }) {
