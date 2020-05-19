@@ -1,4 +1,4 @@
-schema: ../server/schema/typeDefs.graphql
+schema: ../server/modules/*/index.ts
 documents: './src/**/*.{tsx,ts}'
 overwrite: true
 generates:
