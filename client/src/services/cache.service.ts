@@ -4,9 +4,9 @@ import * as fragments from '../graphql/fragments';
 import * as queries from '../graphql/queries';
 import {
   MessageFragment,
+  useMessageAddedSubscription,
   ChatsQuery,
   ChatFragment,
-  useMessageAddedSubscription,
   useChatAddedSubscription,
   useChatRemovedSubscription,
 } from '../graphql/types';
@@ -64,9 +64,9 @@ export const writeMessage = (client: Client, message: MessageFragment) => {
   if (fullChat === null || fullChat.messages === null) {
     return;
   }
-  if (fullChat.messages.some((m: any) => m.id === message.id)) return;
+  if (fullChat.messages.messages.some((m: any) => m.id === message.id)) return;
 
-  fullChat.messages.push(message);
+  fullChat.messages.messages.push(message);
   fullChat.lastMessage = message;
 
   client.writeFragment({
