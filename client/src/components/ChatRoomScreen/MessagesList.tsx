@@ -141,7 +141,9 @@ const MessagesList: React.FC<MessagesListProps> = ({
           key={message.id}>
           <Contents data-testid="message-content">{message.content}</Contents>
           <Timestamp data-testid="message-date">
-            {format(message.createdAt, 'HH:mm')}
+            {new Date(message.createdAt).toTimeString().slice(0, 8)}
+
+            {/* {format(message.createdAt, 'HH:mm')} */}
           </Timestamp>
         </MessageItem>
       ))}
