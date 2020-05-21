@@ -1,8 +1,10 @@
 {
   "name": "full-stack-whatsapp-clone-server",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Server side from A whatsapp clone made with React, Typescript, GraphQL, and other technologies",
-  "main": "index.js",
+  "private": true,
+  "author": "ramon morcillo @reymon359",
+  "license": "ISC",
   "scripts": {
     "prestart": "yarn codegen",
     "start": "ts-node index.ts",
@@ -15,8 +17,6 @@
     "loadtest": "yarn artillery run artillery.yml > loadtest.log",
     "loadtest:limit": "yarn artillery run artillery-limit.yml > loadtest.log"
   },
-  "author": "ramon morcillo @reymon359",
-  "license": "ISC",
   "dependencies": {
     "@graphql-modules/core": "^0.7.17",
     "@graphql-modules/di": "^0.7.17",

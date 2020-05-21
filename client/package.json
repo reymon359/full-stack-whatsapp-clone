@@ -1,7 +1,20 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "full-stack-whatsapp-clone-client",
+  "version": "1.0.0",
+  "description": "Client side from A whatsapp clone made with React, Typescript, GraphQL, and other technologies",
   "private": true,
+  "author": "ramon morcillo @reymon359",
+  "license": "ISC",
+  "scripts": {
+    "prestart": "yarn codegen",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject",
+    "format": "prettier \"**/*.{ts,tsx,css,graphql}\" --write",
+    "codegen": "graphql-codegen",
+    "size": "source-map-explorer 'build/static/js/*.js'"
+  },
   "dependencies": {
     "@apollo/react-hooks": "3.1.5",
     "@graphql-codegen/add": "1.13.5",
@@ -42,16 +55,6 @@
     "styled-components": "5.1.0",
     "subscriptions-transport-ws": "0.9.16",
     "typescript": "3.8.3"
-  },
-  "scripts": {
-    "prestart": "yarn codegen",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "eject": "react-scripts eject",
-    "format": "prettier \"**/*.{ts,tsx,css,graphql}\" --write",
-    "codegen": "graphql-codegen",
-    "size": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
