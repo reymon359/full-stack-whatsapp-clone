@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="0" time="11.319">
-  <testsuite name="Query.chats" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:38" time="3.261" tests="1">
-    <testcase classname="Query.chats should fetch all chats" name="Query.chats should fetch all chats" time="0.162">
+<testsuites name="jest tests" tests="8" failures="0" time="46.2">
+  <testsuite name="Mutation.addChat" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:19" time="13.709" tests="2">
+    <testcase classname="Mutation.addChat creates a new chat between current user and specified recipient" name="Mutation.addChat creates a new chat between current user and specified recipient" time="0.623">
+    </testcase>
+    <testcase classname="Mutation.addChat returns the existing chat if so" name="Mutation.addChat returns the existing chat if so" time="0.223">
     </testcase>
   </testsuite>
-  <testsuite name="Query.chat" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:42" time="1.086" tests="1">
-    <testcase classname="Query.chat should fetch specified chat" name="Query.chat should fetch specified chat" time="0.154">
+  <testsuite name="Query.chats" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:33" time="2.418" tests="1">
+    <testcase classname="Query.chats should fetch all chats" name="Query.chats should fetch all chats" time="0.51">
     </testcase>
   </testsuite>
-  <testsuite name="Query.me" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:43" time="1.252" tests="1">
-    <testcase classname="Query.me should fetch current user" name="Query.me should fetch current user" time="0.087">
+  <testsuite name="Mutation.removeChat" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:36" time="2.097" tests="1">
+    <testcase classname="Mutation.removeChat removes chat by id" name="Mutation.removeChat removes chat by id" time="0.425">
     </testcase>
   </testsuite>
-  <testsuite name="Mutation.addChat" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:44" time="1.134" tests="2">
-    <testcase classname="Mutation.addChat creates a new chat between current user and specified recipient" name="Mutation.addChat creates a new chat between current user and specified recipient" time="0.171">
-    </testcase>
-    <testcase classname="Mutation.addChat returns the existing chat if so" name="Mutation.addChat returns the existing chat if so" time="0.047">
+  <testsuite name="Query.me" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:38" time="2.627" tests="1">
+    <testcase classname="Query.me should fetch current user" name="Query.me should fetch current user" time="0.421">
     </testcase>
   </testsuite>
-  <testsuite name="Query.getUsers" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:45" time="1.041" tests="1">
-    <testcase classname="Query.getUsers should fetch all users except the one signed-in" name="Query.getUsers should fetch all users except the one signed-in" time="0.137">
+  <testsuite name="Query.getUsers" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:40" time="3.04" tests="1">
+    <testcase classname="Query.getUsers should fetch all users except the one signed-in" name="Query.getUsers should fetch all users except the one signed-in" time="0.567">
     </testcase>
   </testsuite>
-  <testsuite name="Mutation.removeChat" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:46" time="1.016" tests="1">
-    <testcase classname="Mutation.removeChat removes chat by id" name="Mutation.removeChat removes chat by id" time="0.133">
+  <testsuite name="Mutation.addMessage" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:44" time="3.646" tests="1">
+    <testcase classname="Mutation.addMessage should add message to specified chat" name="Mutation.addMessage should add message to specified chat" time="0.569">
     </testcase>
   </testsuite>
-  <testsuite name="Mutation.addMessage" errors="0" failures="0" skipped="0" timestamp="2020-05-18T17:58:47" time="1.041" tests="1">
-    <testcase classname="Mutation.addMessage should add message to specified chat" name="Mutation.addMessage should add message to specified chat" time="0.143">
+  <testsuite name="Query.chat" errors="0" failures="0" skipped="0" timestamp="2020-05-21T07:00:47" time="1.954" tests="1">
+    <testcase classname="Query.chat should fetch specified chat" name="Query.chat should fetch specified chat" time="0.445">
     </testcase>
   </testsuite>
 </testsuites>
