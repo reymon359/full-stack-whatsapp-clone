@@ -40,6 +40,8 @@ const pubsub = new PostgresPubSub({
   database: 'whatsapp',
 });
 
+pubsub.ee.setMaxListeners(0); // raise max listeners in event emitter, 0 mean that is limited
+
 export default new GraphQLModule({
   name: 'common',
   typeDefs,
