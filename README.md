@@ -1,7 +1,7 @@
 <p align="center">
   <img width="100" height="100" src="./assets/whatsapp-icon.png">
 </p>
-<h1 style="text-align: center;">
+<h1 align="center">
  Full Stack Whatsapp Clone
 </h1>
 
